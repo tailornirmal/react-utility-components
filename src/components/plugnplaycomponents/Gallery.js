@@ -33,8 +33,6 @@ function Gallery() {
     fetchUserList();
   }, [URL]);
 
-  console.log("photos", photos);
-
   const renderImages = photos.map((picture) => {
     return (
       <div>
