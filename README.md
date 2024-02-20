@@ -20,3 +20,10 @@
 
     - Show More / Show Less
     - Infinate Smooth Scroll
+
+# Forms
+
+    - Validation using Formik
+    - All Fields
+    - File Upload
+    - Submission

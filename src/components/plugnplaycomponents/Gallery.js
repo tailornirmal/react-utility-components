@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Spinner from "../utility/Spinner";
 
 function Gallery() {
   const URL = "https://api.unsplash.com/search/photos";
@@ -11,7 +11,7 @@ function Gallery() {
     const fetchUserList = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`${URL}?query=young?page=1`, {
+        const res = await fetch(`${URL}?query=train?page=1`, {
           method: "GET",
           mode: "cors",
           cache: "no-cache",
@@ -23,7 +23,7 @@ function Gallery() {
           },
         });
         const data = await res.json();
-        setPhotos(data.results);
+        setPhotos(data?.results);
       } catch (error) {
         setErrorMessage("Error", error);
       } finally {
@@ -36,8 +36,13 @@ function Gallery() {
 
   const renderImages = photos.map((picture) => {
     return (
-      <div className="w-60 h-60 rounded-md">
-        <img alt={picture.alt_description} src={picture.urls.regular} />
+      <div className="grid gap-1 place-items-center">
+        <img
+          className="w-64 h-64 pl-4 mb-5 shadow"
+          alt={picture.alt_description}
+          src={picture.urls.regular}
+        />
+        <span>{picture.alt_description}</span>
       </div>
     );
   });
@@ -45,12 +50,16 @@ function Gallery() {
   if (loading) {
     return (
       <div>
-        <AiOutlineLoading3Quarters />
+        <Spinner />
       </div>
     );
   }
 
-  return <div className="row">{renderImages}</div>;
+  return (
+    <div className="container">
+      {errorMessage ? <span>Error in loading data. </span> : renderImages}
+    </div>
+  );
 }
 
 export default Gallery;
