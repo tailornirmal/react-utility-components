@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import icon from '../../../assets/checkmark.png';
 const API_URL = "https://dummyjson.com/todos";
 
 const Todos = () => {
@@ -43,12 +44,10 @@ const Todos = () => {
   if (error)
     return <div className="text-center text-red-600">Error: {error}</div>;
 
-  console.log(todos);
-
   return (
-    <div className="max-w-lg mx-auto mt-8">
+    <div className="max-w-lg mx-auto mt-8 mb-10">
       <h1 className="text-xl text-center mb-10 text-gray-800">
-        Hello Nirmal, Welcome, Your Today's task are below.
+        Todo List
       </h1>
       <ul className="space-y-3">
         {todos.map((todo) => (
@@ -76,7 +75,7 @@ const Todos = () => {
               </span>
             </div>
             {todo.completed && (
-              <span className="text-green-600 font-medium">Done</span>
+              <span className="text-green-600 font-medium"><img className="w-5 h-5" src={icon} alt="done" /></span>
             )}
           </li>
         ))}
