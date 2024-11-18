@@ -7,9 +7,6 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/todos"
-            className={({ isActive }) => {
-              return isActive ? "active-link" : "";
-            }}
           >
             Todos
           </NavLink>
@@ -17,11 +14,15 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/gallery"
-            className={({ isActive }) => {
-              return isActive ? "active-link" : "";
-            }}
           >
             Gallery
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/scroll"
+          >
+            Scroll
           </NavLink>
         </li>
       </ul>
