@@ -21,3 +21,53 @@ ul {
   color: #fff;
   display: block;
 }
+
+a[title] {
+  color: yellow;
+}
+
+a[href^="http://"][href$=".com"] {
+  color: green;
+}
+
+.notices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 90%;
+  margin: auto;
+}
+
+.notice {
+  width: 90%;
+  justify-content: center;
+  border-radius: 1rem;
+  border: black solid 2px;
+  background-color: #ffc107;
+  color: black;
+  padding: 1rem;
+  .notice-heading::before {
+    /* equivalent to `.notice .notice-heading::before` */
+    content: "ℹ︎ ";
+  }
+  &.warning {
+    /* equivalent to `.notice.warning` */
+    background-color: #d81b60;
+    border-color: #d81b60;
+    color: white;
+    .warning-heading::before {
+      /* equivalent to `.notice.warning .warning-heading::before` */
+      content: "! ";
+    }
+  }
+  &.success {
+    /* equivalent to `.notice.success` */
+    background-color: #004d40;
+    border-color: #004d40;
+    color: white;
+    .success-heading::before {
+      /* equivalent to `.notice.success .success-heading::before` */
+      content: "✓ ";
+    }
+  }
+}

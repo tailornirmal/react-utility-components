@@ -25,6 +25,13 @@ const NavBar = () => {
             Scroll
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/reduxtoolkit"
+          >
+            Redux Toolkit
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
