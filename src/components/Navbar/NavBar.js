@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
@@ -27,9 +28,9 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            to="/reduxtoolkit"
+            to="/geolocation"
           >
-            Redux Toolkit
+            Geolocation
           </NavLink>
         </li>
       </ul>
